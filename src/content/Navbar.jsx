@@ -1,6 +1,6 @@
 import React from "react";
 
-function Navbar() {
+function Navbar({onLogout}) {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -20,7 +20,14 @@ function Navbar() {
           <li>
             <div className="text-white hover:text-yellow-500">Admin</div>
           </li>
+          <li>
+          <button onClick={onLogout} className="text-white hover:text-yellow-500" type="button">
+             Logout
+          </button>
+          </li>
+          
         </ul>
+        
       </div>
     </nav>
   );
