@@ -5,24 +5,31 @@ import Navbar from "./content/Navbar";
 import ParkingLot from "./content/ParkingLot";
 import { useState } from "react";
 import SignUpDetails from "./admin/SignUpDetails";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { AuthContext, AuthProvider } from "./admin/AuthContext";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        // Perform login logic here
-        setIsLoggedIn(true);
-    }
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Perform login logic here
+    setIsLoggedIn(true);
+  };
 
-    const handleLogout = () => {
-        // Perform logout logic here
-        setIsLoggedIn(false);
-    }
+  const handleLogout = () => {
+    // Perform logout logic here
+    setIsLoggedIn(false);
+  };
 
   return (
     <>
-    {/* <Login/> */}
+      {/* <Login/> */}
       {/* <Navbar />
       <br></br>
       <ParkingLot /> */}
@@ -33,7 +40,16 @@ function App() {
                 <Login onSubmit={handleLogin} />
             )}
         </div> */}
-        <SignUpDetails/>
+      {/* <SignUpDetails/> */}
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/signup" element={<SignUpDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Navigate to="/login" replace />} />
+          </Routes>
+        </Router>
+      </AuthProvider>
     </>
   );
 }
