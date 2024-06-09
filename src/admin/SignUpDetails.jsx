@@ -54,7 +54,7 @@ const SignUpDetails = () => {
       if (!response.ok) {
         throw new Error("Signup failed");
       } else {
-        let data = response.json();
+        let data = await response.json();
         alert(`"Username: " ${data.username} "  Password: "${data.password}`);
       }
 
