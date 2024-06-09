@@ -39,7 +39,7 @@ const SignUpDetails = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, name, gender, age, address }),
+        body: JSON.stringify({ username, name, gender, age,contact,email, address }),
       });
       // Handle form submission logic here
       console.log("Form submitted:", { username, name, gender, age, address });
