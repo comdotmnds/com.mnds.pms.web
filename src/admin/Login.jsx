@@ -36,7 +36,7 @@ function Login() {
   return (
     <div
       className="absolute inset-0 bg-center bg-cover zoom-in opacity-80 backdrop-blur"
-      style={{ backgroundImage: "url('PMS.jpeg')" }}
+      style={{ backgroundImage: "url('Park.png')" }}
     >
       <div className="flex items-center justify-center h-screen w-full max-w-md bg-glass">
         <form
