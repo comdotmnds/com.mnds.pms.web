@@ -1,8 +1,6 @@
 import "./App.css";
 import Login from "./admin/Login";
 import Dashboard from "./admin/Dashboard";
-import Navbar from "./content/Navbar";
-import ParkingLot from "./content/ParkingLot";
 import { useState } from "react";
 import SignUpDetails from "./admin/SignUpDetails";
 import {
@@ -13,6 +11,7 @@ import {
 } from "react-router-dom";
 import { AuthContext, AuthProvider } from "./admin/AuthContext";
 import ProtectedRoute from "./admin/ProtectedRoute";
+import FloorView from "./content/FloorView";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,6 +32,7 @@ function App() {
       {/* <Login/> */}
       {/* <Navbar />
       <br></br>
+      <ParkingLot />
       <ParkingLot /> */}
       {/* <div>
             {isLoggedIn ? (
@@ -47,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/signup" element={<SignUpDetails />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/floor" element={<FloorView/>}/>
             <Route
               path="/dashboard"
               element={
