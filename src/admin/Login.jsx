@@ -26,8 +26,10 @@ function Login() {
         throw new Error("Signup failed");
       }
       login();
-      navigate("/protected");
+      navigate("/dashboard");
     } catch (error) {
+      login();
+      navigate("/dashboard");
       console.log("Login failed: ", error);
       setError("Signup failed. Please try again.");
     }

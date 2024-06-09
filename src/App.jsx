@@ -8,10 +8,11 @@ import SignUpDetails from "./admin/SignUpDetails";
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
   Navigate,
+  Routes,
 } from "react-router-dom";
 import { AuthContext, AuthProvider } from "./admin/AuthContext";
+import ProtectedRoute from "./admin/ProtectedRoute";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -46,6 +47,14 @@ function App() {
           <Routes>
             <Route path="/signup" element={<SignUpDetails />} />
             <Route path="/login" element={<Login />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/" element={<Navigate to="/login" replace />} />
           </Routes>
         </Router>
