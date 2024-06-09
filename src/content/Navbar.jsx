@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../admin/AuthContext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 function Navbar() {
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const onLogout = () => {
+  const handleLogout = () => {
     logout();
     navigate("/login");
   };
@@ -29,13 +31,10 @@ function Navbar() {
             <div className="text-white hover:text-yellow-500">Admin</div>
           </li>
           <li>
-            <button
-              onClick={onLogout}
-              className="text-white hover:text-yellow-500"
-              type="button"
-            >
-              Logout
-            </button>
+          <button onClick={handleLogout} className="text-white hover:text-yellow-500">
+       
+        <FontAwesomeIcon icon={faSignOutAlt} />
+      </button>
           </li>
         </ul>
       </div>
