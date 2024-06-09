@@ -15,7 +15,7 @@ function FloorId() {
   }
 
   return (
-    <div onClick={showFloor} className='p-5 bg-green-50 text-start text-xl font-extrabold inline-block content-start m-5 '>Floor Id
+    <div onClick={showFloor} className='p-5 bg-green-50 text-start text-xl font-extrabold inline-block content-start m-5 hover:text-yellow-500 cursor-pointer'>Floor Id
     {/* {showFloorDtl&&<FloorView/>} */}
     </div>
   )

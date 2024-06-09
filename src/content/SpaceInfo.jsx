@@ -13,7 +13,7 @@ function SpaceInfo () {
     <div className="bg-gray-700 p-7  rounded-md shadow-md space-x-12 flex-auto m-3 inline-block">
     
         <AvailableSpace/>
-        <TotalSpace/>
+        {/* <TotalSpace/> */}
     </div>
       </div>
 

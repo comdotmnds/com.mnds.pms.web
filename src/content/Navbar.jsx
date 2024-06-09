@@ -19,19 +19,19 @@ function Navbar() {
         </div>
         <ul className="flex space-x-4">
           <li>
-            <div className="text-white hover:text-yellow-500">Home</div>
+            <div className="text-white hover:text-yellow-500 cursor-pointer">Home</div>
           </li>
           <li>
-            <div className="text-white hover:text-yellow-500">Parking</div>
+            <div className="text-white hover:text-yellow-500 cursor-pointer">Parking</div>
           </li>
           <li>
-            <div className="text-white hover:text-yellow-500">Reports</div>
+            <div className="text-white hover:text-yellow-500 cursor-pointer">Reports</div>
           </li>
           <li>
-            <div className="text-white hover:text-yellow-500">Admin</div>
+            <div className="text-white hover:text-yellow-500 cursor-pointer">Admin</div>
           </li>
           <li>
-          <button onClick={handleLogout} className="text-white hover:text-yellow-500">
+          <button onClick={handleLogout} className="text-white hover:text-yellow-500 cursor-pointer ">
        
         <FontAwesomeIcon icon={faSignOutAlt} />
       </button>
