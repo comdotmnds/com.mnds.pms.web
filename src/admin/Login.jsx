@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     setError("");
     try {
-      const response = await fetch("http://localhost:8080/pms/admins/get", {
+      const response = await fetch("http://localhost:8080/pms/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
