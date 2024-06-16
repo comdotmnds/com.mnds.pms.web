@@ -1,18 +1,24 @@
-import React from 'react'
+import React ,{ useContext }from 'react'
 import TwoWheeler from './TwoWheeler'
 import Spot from './Spot';
 import Bike from './Bike';
 import Car from './Car';
 import Navbar from './Navbar';
+import { useParams } from 'react-router-dom';
+import { FloorDetailContext } from './FloorDetailContext';
 
 function FloorView() {
+
+    //const { floorViewDtl } = useParams();
+    const { flId, floorDetails}  = useContext(FloorDetailContext);
+    const flrdtls = floorDetails[flId -1]
     
     const bikeChild = [];
     const carChild = [];
-    for (let index = 0; index < 55; index++) {
+    for (let index = 0; index < flrdtls.availableTwoWheelerSpot; index++) {
         bikeChild.push(<Bike/>);   
     }
-    for (let index = 0; index < 33; index++) {
+    for (let index = 0; index < flrdtls.availableFourWheelerSpot; index++) {
         carChild.push(<Car/>);
     }
 

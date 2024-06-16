@@ -9,9 +9,10 @@ import {
   Navigate,
   Routes,
 } from "react-router-dom";
-import { AuthContext, AuthProvider } from "./admin/AuthContext";
+import { AuthContext, AuthProvider} from "./admin/AuthContext";
 import ProtectedRoute from "./admin/ProtectedRoute";
 import FloorView from "./content/FloorView";
+import { FloorDetailProvider } from "./content/FloorDetailContext";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -43,11 +44,12 @@ function App() {
         </div> */}
       {/* <SignUpDetails/> */}
       <AuthProvider>
+        <FloorDetailProvider>
         <Router>
           <Routes>
             <Route path="/signup" element={<SignUpDetails />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/floor" element={<FloorView/>}/>
+            <Route path="/floor" element={<FloorView />}/>
             <Route
               path="/dashboard"
               element={
@@ -59,6 +61,7 @@ function App() {
             <Route path="/" element={<Navigate to="/login" replace />} />
           </Routes>
         </Router>
+        </FloorDetailProvider>
       </AuthProvider>
     </>
   );
