@@ -15,6 +15,9 @@ function FloorView() {
     
     const bikeChild = [];
     const carChild = [];
+
+
+
     for (let index = 0; index < flrdtls.availableTwoWheelerSpot; index++) {
         bikeChild.push(<Bike/>);   
     }

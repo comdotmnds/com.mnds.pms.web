@@ -1,32 +1,67 @@
-import React, { useState ,useContext} from 'react'
+import React, { useState ,useContext, useEffect} from 'react'
 import SpaceInfo from './SpaceInfo';
 import { FloorDetailContext } from './FloorDetailContext'
 
 function InitialDasboard() {
 
-  const [data, setData] = useState("")
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(true)
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const{detail} = useContext(FloorDetailContext);
 
+  // without use eff  code
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch('http://localhost:8080/pms/get/spot');
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+  //     const result = await response.json();
+  //     setData(result);
+  //   } catch (error) {
+  //     setError(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch('http://localhost:8080/pms/get/spot');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const result = await response.json();
-      setData(result);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchData();
+  //  fetchData();
+  // 
+  // with use eff code
+  // const [data, setData] = useState([])
+  //   useEffect(() => {
+  //     fetch('http://localhost:8080/pms/get/spot')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setData(data)
+  //     })
+      
+    
   
+  //   }, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/pms/get/spot');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+    
+  //
     const child = [];
     const flrdtls  = new Map();
 

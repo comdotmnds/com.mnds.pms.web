@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { AuthContext } from "../admin/AuthContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus, faHome, faSignOutAlt, faSquareParking } from '@fortawesome/free-solid-svg-icons';
 function Navbar() {
   const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -19,17 +19,17 @@ function Navbar() {
         </div>
         <ul className="flex space-x-4">
           <li>
-            <div className="text-white hover:text-yellow-500 cursor-pointer">Home</div>
+            <div className="text-white hover:text-yellow-500 cursor-pointer"><Link to="/home">
+            <FontAwesomeIcon icon={faHome}/> Home</Link></div>
           </li>
           <li>
-            <div className="text-white hover:text-yellow-500 cursor-pointer">Parking</div>
+            <div className="text-white hover:text-yellow-500 cursor-pointer"><Link to="/dashboard">
+            <FontAwesomeIcon icon={faSquareParking}/> Parking</Link></div>
           </li>
           <li>
-            <div className="text-white hover:text-yellow-500 cursor-pointer">Reports</div>
+            <div className="text-white hover:text-yellow-500 cursor-pointer"><Link to="/new floor"><FontAwesomeIcon icon={faCirclePlus}/> New Floor</Link></div>
           </li>
-          <li>
-            <div className="text-white hover:text-yellow-500 cursor-pointer">Admin</div>
-          </li>
+          
           <li>
           <button onClick={handleLogout} className="text-white hover:text-yellow-500 cursor-pointer ">
        

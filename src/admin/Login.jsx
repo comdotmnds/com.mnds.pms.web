@@ -26,10 +26,10 @@ function Login() {
         throw new Error("Signup failed");
       }
       login();
-      navigate("/dashboard");
+      navigate("/home");
     } catch (error) {
       login();
-      navigate("/dashboard");
+      navigate("/home");
       console.log("Login failed: ", error);
       setError("Signup failed. Please try again.");
     }
